@@ -48,7 +48,9 @@ Open in your browser:
 Navigate to http://localhost:5173
 
 📂 Project Structure
+
 Plaintext
+
 ├── public/                 # Static assets and manifest.json
 ├── src/
 │   ├── components/         # Reusable UI, Map, AskAI, ChargingSession, Wallet & Trip components
