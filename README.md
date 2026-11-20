@@ -1,81 +1,62 @@
-# Base44 Project
+Markdown
+# ⚡ Thailand Charge Pass (Volt Jai - Thailand EV)
 
-Use this repository to run and edit the app locally, then publish changes back through Base44.
+A modern, full-featured web application for Electric Vehicle (EV) drivers in Thailand to discover charging stations, compare Time-of-Use (TOU) rates, simulate real-time charging sessions, manage EV profiles, and get instant answers from a smart EV Charging Assistant.
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+---
 
-## Prerequisites
+## ✨ Key Features
 
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
+- **🗺️ Interactive EV Charging Map:** Browse 40+ EV charging stations across Bangkok and major provinces in Thailand (Chiang Mai, Phuket, Pattaya, Hua Hin, Ayutthaya, Nakhon Ratchasima, etc.).
+- **🔍 Smart Network & Power Filters:** Filter stations dynamically by charging network (**PTT EV Station PluZ, EA Anywhere, PEA VOLTA, ELEX by EGAT, MG Super Charge, Tesla Supercharger, SHARGE**), availability status, and DC Fast Charging (>50 kW).
+- **🤖 Smart EV AI Assistant (Ask AI):** Context-aware assistant supporting both Thai and English that searches station data, calculates estimated charging time and cost based on your active EV battery capacity, and answers EV-related questions.
+- **🔌 Real-Time Charging Simulation & TOU Rates:** Displays Thailand Time-of-Use (On-Peak / Off-Peak) rates per kWh, simulates active charging sessions (kWh & THB progress), and automatically deducts charging costs from your in-app wallet.
+- **🚗 My EV, Garage & Wallet:** Manage your EV vehicles (e.g., BYD Seal AWD), track charging history, and monitor your dynamic THB wallet balance.
+- **📅 Station Bookings & Community:** Reserve charging slots in advance and share tips or station reviews with fellow EV drivers.
 
-See the [Base44 CLI docs](https://docs.base44.com/developers/references/cli/get-started/overview) if you want to run Base44 commands directly.
+---
 
-## Run Locally
+## 🛠️ Tech Stack
 
-Run the full local development environment from the project root:
+- **Frontend:** React 18, Vite, Tailwind CSS, Lucide Icons
+- **Map & Location:** Interactive Map Components & Geo-filtering
+- **State & Storage:** Local Mock API with persistent `localStorage` state for standalone offline/local execution
 
-```bash
-base44 dev
-```
+---
 
-`base44 dev` starts the local Base44 development backend and, when this app is configured for it, also starts the frontend dev server for you. Use the frontend URL printed by the command.
+## 🚀 Getting Started (Local Setup)
 
-For example, when the Base44 project config includes a `serveCommand`, `base44 dev` can launch the frontend too:
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- `npm`
 
-```json5
-{
-  "site": {
-    "serveCommand": "npm run dev"
-  }
-}
-```
+### Installation & Running Locally
 
-In a Base44 project this lives in `base44/config.jsonc`.
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/6858002156/Gen-Ai.git](https://github.com/6858002156/Gen-Ai.git)
+   cd Gen-Ai
+Install dependencies:
 
-## Run Only The Frontend
+Bash
+npm install
+Start the development server:
 
-If you only want to work on the frontend against the hosted Base44 backend, run:
-
-```bash
+Bash
 npm run dev
-```
+Open in your browser:
+Navigate to http://localhost:5173
 
-Open the local URL printed by Vite.
-
-## Use The Hosted Backend
-
-For frontend-only development, create or update `.env.local` in the project root:
-
-```bash
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=https://your-app.base44.app
-```
-
-`VITE_BASE44_APP_ID` identifies the Base44 app.
-
-`VITE_BASE44_APP_BASE_URL` tells the Base44 Vite plugin where to send local `/api` requests. Point it at your deployed Base44 app URL when you want the local frontend to use the hosted backend.
-
-When you use `base44 dev`, the command injects the local Base44 values for you, so `.env.local` is mainly needed for frontend-only workflows.
-
-## Publish Your Changes
-
-After pushing your changes to git, open the Base44 dashboard and publish the app:
-
-```bash
-base44 dashboard open
-```
-
-## Docs & Support
-
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
-
-Base44 CLI command reference: [https://docs.base44.com/developers/references/cli/commands/introduction](https://docs.base44.com/developers/references/cli/commands/introduction)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
-
-## Enable The VOLT JAI AI Assistant
-
-The assistant backend uses OpenAI's `gpt-5.3-codex` model from `base44/functions/askEvAssistant`. Add an `OPENAI_API_KEY` secret to the Base44 app's function secrets before publishing. Keep this key server-side; do not add it to frontend code or expose it with a `VITE_` prefix. The function sends the driver's question and relevant station records to OpenAI to generate its answer.
+📂 Project Structure
+Plaintext
+├── public/                 # Static assets and manifest.json
+├── src/
+│   ├── components/         # Reusable UI, Map, AskAI, ChargingSession, Wallet & Trip components
+│   ├── hooks/              # Custom React hooks (useWallet, useAllStations, etc.)
+│   ├── lib/                # Standalone mockApi, charging calculators & utility functions
+│   ├── pages/              # Main application views (MapHome, MyEV, Bookings, Community, etc.)
+│   ├── App.jsx             # Root application component and routing
+│   └── main.jsx            # Entry point
+├── index.html              # HTML template
+├── package.json            # Project dependencies and scripts
+└── vite.config.js          # Vite configuration with '@' path alias
