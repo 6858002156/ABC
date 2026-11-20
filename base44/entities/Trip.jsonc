@@ -1,0 +1,142 @@
+{
+  "name": "Trip",
+  "type": "object",
+  "properties": {
+    "origin": {
+      "type": "string"
+    },
+    "destination": {
+      "type": "string"
+    },
+    "distance_km": {
+      "type": "number"
+    },
+    "estimated_duration_minutes": {
+      "type": "integer"
+    },
+    "total_duration_minutes": {
+      "type": "integer"
+    },
+    "estimated_cost": {
+      "type": "number"
+    },
+    "energy_kwh": {
+      "type": "number"
+    },
+    "battery_start_pct": {
+      "type": "integer"
+    },
+    "battery_target_pct": {
+      "type": "integer"
+    },
+    "arrival_battery_pct": {
+      "type": "integer"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "charging_stops": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "station_id": {
+            "type": "string"
+          },
+          "station_name": {
+            "type": "string"
+          },
+          "brand": {
+            "type": "string"
+          },
+          "network": {
+            "type": "string"
+          },
+          "connector_type": {
+            "type": "string"
+          },
+          "power_kw": {
+            "type": "number"
+          },
+          "price_thb": {
+            "type": "number"
+          },
+          "charge_minutes": {
+            "type": "integer"
+          },
+          "kwh": {
+            "type": "number"
+          },
+          "cost": {
+            "type": "number"
+          },
+          "arrival_pct": {
+            "type": "integer"
+          },
+          "target_pct": {
+            "type": "integer"
+          },
+          "at_km": {
+            "type": "number"
+          },
+          "latitude": {
+            "type": "number"
+          },
+          "longitude": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "vehicle_model": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "origin",
+    "destination",
+    "distance_km",
+    "estimated_cost"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

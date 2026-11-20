@@ -1,0 +1,92 @@
+{
+  "name": "UserVehicles",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string",
+      "enum": [
+        "BYD",
+        "MG",
+        "Tesla",
+        "Neta",
+        "Ora",
+        "Aion",
+        "Volvo"
+      ],
+      "enumColors": [
+        "red",
+        "gray",
+        "pink",
+        "blue",
+        "purple",
+        "green",
+        "yellow"
+      ]
+    },
+    "model": {
+      "type": "string"
+    },
+    "battery_capacity_kwh": {
+      "type": "number"
+    },
+    "preferred_connector": {
+      "type": "string",
+      "enum": [
+        "CCS2",
+        "Type 2",
+        "CHAdeMO"
+      ]
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "brand",
+    "model",
+    "battery_capacity_kwh"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {},
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

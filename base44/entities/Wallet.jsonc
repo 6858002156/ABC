@@ -1,0 +1,17 @@
+{
+  "name": "Wallet",
+  "type": "object",
+  "properties": {
+    "balance": {
+      "type": "number",
+      "default": 0
+    },
+    "currency": {
+      "type": "string",
+      "default": "THB"
+    }
+  },
+  "required": [
+    "balance"
+  ]
+}

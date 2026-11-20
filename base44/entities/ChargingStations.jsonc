@@ -1,0 +1,116 @@
+{
+  "name": "ChargingStations",
+  "type": "object",
+  "properties": {
+    "station_name": {
+      "type": "string"
+    },
+    "network_brand": {
+      "type": "string",
+      "enum": [
+        "PTT EV Station PluZ",
+        "PEA VOLTA",
+        "EA Anywhere",
+        "Elex by EGAT",
+        "ReverSharger",
+        "Tesla Supercharger",
+        "MG Super Charge",
+        "Other"
+      ],
+      "enumColors": [
+        "blue",
+        "purple",
+        "green",
+        "yellow",
+        "pink",
+        "red",
+        "gray",
+        "gray"
+      ]
+    },
+    "operator": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "address": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Available",
+        "Charging",
+        "Offline"
+      ],
+      "default": "Available",
+      "enumColors": [
+        "green",
+        "yellow",
+        "gray"
+      ]
+    },
+    "connector_type": {
+      "type": "string",
+      "enum": [
+        "CCS2",
+        "Type 2",
+        "CHAdeMO"
+      ],
+      "enumColors": [
+        "green",
+        "blue",
+        "purple"
+      ]
+    },
+    "max_power_kw": {
+      "type": "number"
+    },
+    "on_peak_price_thb": {
+      "type": "number"
+    },
+    "off_peak_price_thb": {
+      "type": "number"
+    },
+    "external_station_id": {
+      "type": "string"
+    },
+    "external_ocpi_evse_uid": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "station_name",
+    "latitude",
+    "longitude"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

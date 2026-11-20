@@ -1,0 +1,42 @@
+{
+  "name": "Transaction",
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "topup",
+        "charge",
+        "refund"
+      ]
+    },
+    "amount": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "pending",
+        "failed"
+      ]
+    },
+    "station_name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "kwh": {
+      "type": "number"
+    },
+    "payment_method": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "type",
+    "amount",
+    "status"
+  ]
+}

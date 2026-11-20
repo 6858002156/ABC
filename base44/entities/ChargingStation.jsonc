@@ -1,0 +1,118 @@
+{
+  "name": "ChargingStation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "operator": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "province": {
+      "type": "string"
+    },
+    "lat": {
+      "type": "number"
+    },
+    "lng": {
+      "type": "number"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "power_kw": {
+      "type": "number"
+    },
+    "max_power_kw": {
+      "type": "number"
+    },
+    "connector_type": {
+      "type": "string",
+      "enum": [
+        "CCS2",
+        "CHAdeMO",
+        "Type 2",
+        "GBT"
+      ]
+    },
+    "connector_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "num_points": {
+      "type": "number"
+    },
+    "price_per_kwh": {
+      "type": "number"
+    },
+    "usage_cost": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "total_connectors": {
+      "type": "integer"
+    },
+    "available_connectors": {
+      "type": "integer"
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "ocm_id": {
+      "type": "number"
+    },
+    "osm_id": {
+      "type": "number"
+    },
+    "last_synced": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

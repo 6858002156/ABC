@@ -1,0 +1,10 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "wallet_balance_thb": {
+      "type": "number",
+      "default": 500
+    }
+  }
+}

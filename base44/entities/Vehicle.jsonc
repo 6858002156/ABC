@@ -1,0 +1,41 @@
+{
+  "name": "Vehicle",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "battery_kwh": {
+      "type": "number"
+    },
+    "range_km": {
+      "type": "number"
+    },
+    "color": {
+      "type": "string"
+    },
+    "plate": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "brand",
+    "model",
+    "battery_kwh",
+    "range_km"
+  ]
+}
