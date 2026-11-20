@@ -52,13 +52,24 @@ Navigate to http://localhost:5173
 Plaintext
 
 ├── public/                 # Static assets and manifest.json
+
 ├── src/
+
 │   ├── components/         # Reusable UI, Map, AskAI, ChargingSession, Wallet & Trip components
+
 │   ├── hooks/              # Custom React hooks (useWallet, useAllStations, etc.)
+
 │   ├── lib/                # Standalone mockApi, charging calculators & utility functions
+
 │   ├── pages/              # Main application views (MapHome, MyEV, Bookings, Community, etc.)
+
 │   ├── App.jsx             # Root application component and routing
+
 │   └── main.jsx            # Entry point
+
 ├── index.html              # HTML template
+
 ├── package.json            # Project dependencies and scripts
+
 └── vite.config.js          # Vite configuration with '@' path alias
+
